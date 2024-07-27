@@ -15,7 +15,7 @@ trivy scan2html fs --cache-dir /tmp/trivy/ --vuln-type library --scanners vuln,m
 
 # Запускаем Checkov
 echo "Running Checkov..."
-checkov -d $CODE_DIR --output github_failed_only > $RESULTS_DIR/checkov.txt
+checkov -d $CODE_DIR --output github_failed_only > $RESULTS_DIR/checkov.md
 
 # Запускаем TruffleHog
 echo "Running TruffleHog..."
