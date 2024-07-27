@@ -1,4 +1,5 @@
 import json
+import argparse
 
 def json_to_markdown(json_data):
     markdown = "# Отчет об ошибках\n\n"
@@ -20,15 +21,25 @@ def json_to_markdown(json_data):
 
     return markdown
 
-# Чтение JSON из файла
-with open("semgrep.json", "r", encoding="utf-8") as f:
-    json_data = json.load(f)
+def main():
+    parser = argparse.ArgumentParser(description="Преобразование JSON отчета Semgrep в Markdown")
+    parser.add_argument("-f", "--file", required=True, help="Путь к входному JSON файлу")
+    parser.add_argument("-o", "--output_file", default="semgrep_report.md", help="Путь к выходному Markdown файлу")
+    
+    args = parser.parse_args()
+    
+    # Чтение JSON из файла
+    with open(args.file, "r", encoding="utf-8") as f:
+        json_data = json.load(f)
 
-# Преобразование JSON в Markdown
-markdown_report = json_to_markdown(json_data)
+    # Преобразование JSON в Markdown
+    markdown_report = json_to_markdown(json_data)
 
-# Сохранение Markdown-отчета в файл
-with open("semgrep_report.md", "w", encoding="utf-8") as f:
-    f.write(markdown_report)
+    # Сохранение Markdown-отчета в файл
+    with open(args.output_file, "w", encoding="utf-8") as f:
+        f.write(markdown_report)
 
-print("Преобразование завершено. Отчет сохранен в файл semgrep_report.md")
+    print(f"Преобразование завершено. Отчет сохранен в файл {args.output_file}")
+
+if __name__ == "__main__":
+    main()
