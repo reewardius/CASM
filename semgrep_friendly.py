@@ -2,11 +2,11 @@ import json
 import argparse
 
 def json_to_markdown(json_data):
-    markdown = "# Отчет об ошибках\n\n"
+    markdown = "# Отчет об уязвимостях\n\n"
     error_number = 1
     
     for result in json_data["results"]:
-        markdown += f"## Ошибка {error_number}\n"
+        markdown += f"## Уязвимость №{error_number}\n"
         markdown += f"- **Сообщение:** {result['extra']['message']}\n"
         markdown += f"- **Категория:** {result['extra']['metadata']['category']}\n"
         markdown += f"- **Уверенность:** {result['extra']['metadata']['confidence']}\n"
