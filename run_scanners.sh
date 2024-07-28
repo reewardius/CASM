@@ -21,6 +21,10 @@ checkov -d $CODE_DIR --output github_failed_only > $RESULTS_DIR/checkov.md
 echo "Running TruffleHog..."
 trufflehog filesystem $CODE_DIR --only-verified > $RESULTS_DIR/trufflehog.txt
 
+# Запускаем detect-secrets
+echo "Running detect-secrets..."
+detect-secrets scan $CODE_DIR --all-files > $RESULTS_DIR/detect-secrets.txt
+
 # Запускаем Semgrep
 echo "Running Semgrep..."
 semgrep scan $CODE_DIR --config auto --json > $RESULTS_DIR/semgrep.json

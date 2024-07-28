@@ -18,6 +18,9 @@ RUN pip install --no-cache-dir semgrep
 # Устанавливаем TruffleHog
 RUN curl -sSfL https://raw.githubusercontent.com/trufflesecurity/trufflehog/main/scripts/install.sh | sh -s -- -b /usr/local/bin
 
+# Устанавливаем detect-secrets
+RUN pip install --no-cache-dir detect-secrets
+
 WORKDIR /workspace
 
 COPY run_scanners.sh /usr/local/bin/run_scanners.sh
