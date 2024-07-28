@@ -13,7 +13,7 @@ def json_to_markdown(json_data):
         markdown += f"- **CWE:** {', '.join(result['extra']['metadata']['cwe'])}\n"
         markdown += f"- **Тип движка:** {result['extra']['engine_kind']}\n"
         markdown += f"- **Путь:** {result['path']}\n"
-        markdown += f"- **Линии:**\n```\n{result['extra']['lines']}\n```\n"
+        markdown += f"- **Код:**\n```\n{result['extra']['lines']}\n```\n"
         markdown += f"- **Начало:** строка {result['start']['line']}\n"
         markdown += f"- **Конец:** строка {result['end']['line']}\n"
         markdown += "\n"
