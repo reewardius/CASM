@@ -18,6 +18,6 @@ docker build -t rasm .
 ```
 # How to scan repository
 ```
-docker run --rm -v $(pwd):/workspace -v $(pwd)/output:/output rasm
+docker run --rm -v $(pwd)/<path-to-code>:/workspace -v $(pwd)/output:/output rasm
 ```
 
