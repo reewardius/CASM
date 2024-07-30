@@ -5,7 +5,10 @@ def json_to_markdown(json_data):
     markdown = "# Отчет об уязвимостях\n\n"
     error_number = 1
     
-    for result in json_data["results"]:
+    severity_order = ["CRITICAL", "HIGH", "MEDIUM", "LOW", "INFO"]
+    sorted_results = sorted(json_data["results"], key=lambda x: severity_order.index(x["extra"]["metadata"]["confidence"]))
+
+    for result in sorted_results:
         markdown += f"## Уязвимость №{error_number}\n"
         markdown += f"- **Сообщение:** {result['extra']['message']}\n"
         markdown += f"- **Критичность:** {result['extra']['metadata']['confidence']}\n"
@@ -26,14 +29,11 @@ def main():
     
     args = parser.parse_args()
     
-    # Чтение JSON из файла
     with open(args.file, "r", encoding="utf-8") as f:
         json_data = json.load(f)
 
-    # Преобразование JSON в Markdown
     markdown_report = json_to_markdown(json_data)
 
-    # Сохранение Markdown-отчета в файл
     with open(args.output_file, "w", encoding="utf-8") as f:
         f.write(markdown_report)
 
