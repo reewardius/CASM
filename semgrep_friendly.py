@@ -8,10 +8,8 @@ def json_to_markdown(json_data):
     for result in json_data["results"]:
         markdown += f"## Уязвимость №{error_number}\n"
         markdown += f"- **Сообщение:** {result['extra']['message']}\n"
-        markdown += f"- **Категория:** {result['extra']['metadata']['category']}\n"
-        markdown += f"- **Уверенность:** {result['extra']['metadata']['confidence']}\n"
+        markdown += f"- **Критичность:** {result['extra']['metadata']['confidence']}\n"
         markdown += f"- **CWE:** {', '.join(result['extra']['metadata']['cwe'])}\n"
-        markdown += f"- **Тип движка:** {result['extra']['engine_kind']}\n"
         markdown += f"- **Путь:** {result['path']}\n"
         markdown += f"- **Код:**\n```\n{result['extra']['lines']}\n```\n"
         markdown += f"- **Начало:** строка {result['start']['line']}\n"
