@@ -1,8 +1,9 @@
-FROM python:3.7-slim
+FROM python:3.8-slim
 
 RUN apt-get update && apt-get install -y \
     curl \
     git \
+	unzip \
     golang \
     && rm -rf /var/lib/apt/lists/*
 
@@ -10,7 +11,8 @@ RUN apt-get update && apt-get install -y \
 RUN curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin
 
 # Устанавливаем Checkov
-RUN pip install --no-cache-dir checkov
+RUN curl -L https://github.com/bridgecrewio/checkov/releases/download/3.2.213/checkov_linux_X86_64.zip -o checkov.zip
+RUN unzip checkov.zip && cd dist/ && cp checkov ../
 
 # Устанавливаем Semgrep
 RUN pip install --no-cache-dir semgrep
