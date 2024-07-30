@@ -12,6 +12,8 @@ To ensure the security and quality of the code in the repository (RASM), the fol
 
 - **Semgrep**: Conducts static code analysis, checking for security issues, vulnerabilities, and adherence to coding best practices. Semgrep scans source code using rules tailored to various programming languages and frameworks, helping developers detect and fix issues early in the development process.
 
+- **Detect-Secrets**: An aptly named module for detecting secrets within a code base.
+
 # How to build image
 ```
 docker build -t rasm .
