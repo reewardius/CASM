@@ -1,6 +1,6 @@
-# RASM
+# CASM
 
-RASM automate the process of checking code security and quality, ensuring early detection and remediation of vulnerabilities and misconfigurations.
+CASM (code assessment) automate the process of checking code security and quality, ensuring early detection and remediation of vulnerabilities and misconfigurations.
 
 To ensure the security and quality of the code in the repository (RASM), the following tools are used:
 
@@ -14,12 +14,12 @@ To ensure the security and quality of the code in the repository (RASM), the fol
 
 - **Detect-Secrets**: An aptly named module for detecting secrets within a code base.
 
-# How to build image
+# Build image
 ```
-docker build -t rasm .
+docker build -t casm .
 ```
-# How to scan repository
+# Scan repository with code
 ```
-docker run --rm -v $(pwd)/<path-to-code>:/workspace -v $(pwd)/output:/output rasm
+docker run --rm -v $(pwd)/<path-to-code>:/workspace -v $(pwd)/output:/output casm
 ```
 
