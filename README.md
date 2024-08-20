@@ -18,3 +18,4 @@ To ensure the security and quality of the code in the repository (RASM), the fol
 ```
 docker run --rm -v $(pwd)/<path-to-code>:/workspace -v $(pwd)/output:/output byrains/casm:latest
 ```
+![image](https://github.com/user-attachments/assets/7f62c60c-5022-4481-9a69-97aec5573bcc)
