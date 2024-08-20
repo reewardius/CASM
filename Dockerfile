@@ -11,7 +11,7 @@ RUN curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/
 
 # Устанавливаем Checkov
 RUN curl -L https://github.com/bridgecrewio/checkov/releases/download/3.2.213/checkov_linux_X86_64.zip -o checkov.zip
-RUN unzip checkov.zip && cd dist/ && cp checkov ../
+RUN unzip checkov.zip && cd dist/ && cp checkov /usr/local/bin
 
 # Устанавливаем Semgrep
 RUN pip install --no-cache-dir semgrep
