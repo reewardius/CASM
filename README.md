@@ -14,12 +14,7 @@ To ensure the security and quality of the code in the repository (RASM), the fol
 
 - **Detect-Secrets**: An aptly named module for detecting secrets within a code base.
 
-# Build image
-```
-docker build -t casm .
-```
 # Scan repository with code
 ```
-docker run --rm -v $(pwd)/<path-to-code>:/workspace -v $(pwd)/output:/output casm
+docker run --rm -v $(pwd)/<path-to-code>:/workspace -v $(pwd)/output:/output byrains/casm:1.0.0
 ```
-
