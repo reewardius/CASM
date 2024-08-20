@@ -16,5 +16,5 @@ To ensure the security and quality of the code in the repository (RASM), the fol
 
 # Scan repository with code
 ```
-docker run --rm -v $(pwd)/<path-to-code>:/workspace -v $(pwd)/output:/output byrains/casm:1.0.0
+docker run --rm -v $(pwd)/<path-to-code>:/workspace -v $(pwd)/output:/output byrains/casm:latest
 ```
