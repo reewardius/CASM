@@ -9,7 +9,7 @@ mkdir -p $RESULTS_DIR
 # Запускаем Trivy
 echo "Running Trivy..."
 trivy plugin install github.com/fatihtokus/scan2html
-trivy scan2html fs --vuln-type library --scanners vuln $CODE_DIR $RESULTS_DIR/trivy.html
+trivy scan2html fs --vuln-type library --scanners vuln $CODE_DIR $RESULTS_DIR/trivy_library.html
 
 # Запускаем Checkov
 echo "Running Checkov..."

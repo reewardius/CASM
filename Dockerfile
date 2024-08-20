@@ -2,9 +2,8 @@ FROM python:3.8-slim
 
 RUN apt-get update && apt-get install -y \
     curl \
-    git \
+	git \
 	unzip \
-    golang \
     && rm -rf /var/lib/apt/lists/*
 
 # Устанавливаем Trivy
