@@ -13,7 +13,7 @@ trivy scan2html fs --vuln-type library --scanners vuln $CODE_DIR $RESULTS_DIR/tr
 
 # Запускаем Checkov
 echo "Running Checkov..."
-./checkov -d $CODE_DIR --output github_failed_only > $RESULTS_DIR/checkov.md
+checkov -d $CODE_DIR --output github_failed_only > $RESULTS_DIR/checkov.md
 
 # Запускаем TruffleHog
 echo "Running TruffleHog..."
